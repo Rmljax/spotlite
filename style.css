@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter;
+}
+
+body {
+  background-color: #161616;
+}
+
+:root {
+  --primary-color: rgb(255, 255, 140);
+}
+
+.container {
+  padding: 80px 0;
+}
+.row {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+/* Background */
+.background__wrapper {
+  position: relative;
+  height: 420px;
+  max-width: 100%;
+  overflow: hidden;
+  box-shadow: 0 40px 30px 0 rgba(0, 0, 0, 0.5);
+}
+
+.background__image {
+  filter: opacity(30%);
+  width: 100%;
+}
+
+/* Navigation */
+.nav__content {
+  position: absolute;
+  max-width: 1480px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.nav__left {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav__logo {
+  height: 100%;
+}
+
+.nav__links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav__link {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  padding: 4px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav__link:hover {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.nav__right {
+  display: flex;
+  gap: 16px;
+}
+
+.nav__right button {
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.nav__right button:hover {
+  color: var(--primary-color);
+}
+
+.nav__search {
+  position: relative;
+}
+
+.nav__input {
+  padding: 12px 4px 12px 32px;
+  border-radius: 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-right: 24px;
+  width: 0;
+  transition: width 500ms ease;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.nav__search__button {
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  cursor: pointer;
+  color: white;
+}
+.nav__search__button:hover {
+  color: var(--primary-color);
+}
+
+.nav__input:active,
+.nav__input:focus {
+  width: 240px;
+  outline: 2px solid white;
+  box-shadow: 0px 0px 8px var(--primary-color);
+}
+
+/* Background Text */
+.background__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 32px;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  top: 200px;
+  display: flex;
+  color: white;
+  gap: 16px;
+}
+
+.background__text span {
+  color: var(--primary-color);
+}
+
+.background__title {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.background__subtitle {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.movie__input__wrapper {
+  position: relative;
+  margin-top: 16px;
+}
+.movie__input {
+  padding: 24px 60px 24px 30px;
+  border-radius: 40px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px #fff solid;
+  font-size: 20px;
+  transition: 400ms ease;
+  max-width: 100%;
+}
+
+.movie__input:focus,
+.movie__input:active {
+  transform: scale(1.02);
+  outline: none;
+  box-shadow: 0px 0px 8px var(--primary-color);
+}
+
+.movie__input:focus + .movie__search {
+  transform: scale(1.02), translateY(-50%);
+}
+
+.movie__search {
+  position: absolute;
+  font-size: 24px;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  transition: 400ms ease;
+  cursor: pointer;
+}
+
+.movie__search:hover {
+  transform: translateY(-50%) scale(1.1);
+  color: var(--primary-color);
+}
+
+.movie__search:active {
+  transform: translateY(-50%) scale(0.8);
+}
+
+/* Movies */
+
+.movies__content {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 48px;
+}
+.movies__text {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.movies__title {
+  font-size: 32px;
+  font-weight: 200;
+}
+
+.movies__search__text {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-color);
+  font-size: 20px;
+  font-weight: 300;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.movies__list {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.movies__spinner {
+  color: var(--primary-color);
+  position: absolute;
+  left: 50%;
+  visibility: hidden;
+  font-size: 36px;
+  text-shadow: 0 0 10px var(--primary-color);
+  justify-self: center;
+  animation: loading-spinner 1000ms infinite;
+}
+
+@keyframes loading-spinner {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  margin-top: 32px;
+  height: 360px;
+}
+
+.movie__image {
+  height: 300px;
+  transition: 400ms ease;
+}
+.movie:hover .movie__image {
+  opacity: 30%;
+  transform: scale(1.02);
+  filter: blur(4px);
+}
+
+.movie:hover .movie__info__title,
+.movie:hover .movie__info__list {
+  visibility: visible;
+}
+
+.movie__info__title {
+  position: absolute;
+  top: 0;
+  padding: 16px;
+  visibility: hidden;
+}
+
+.movie__info__list {
+  position: absolute;
+  bottom: 48px;
+  top: 48px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 16px;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+.movie__info {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.movie__title {
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 840px) {
+  .movies__content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .movie {
+    width: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav__logo,
+  .nav__search {
+    display: none;
+  }
+
+  .background__image {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 550px) {
+  .background__title {
+    font-size: 40px;
+  }
+
+  .background__subtitle {
+    font-size: 18px;
+  }
+
+  .movie__input {
+    padding: 16px 0px 16px 30px;
+  }
+
+  .movie {
+    width: 120px;
+    height: 240px;
+  }
+
+  .movie__image {
+    max-height: 188px;
+  }
+
+  .movie__info__title {
+    font-size: 12px;
+  }
+
+  .movie__info {
+    font-size: 10px;
+  }
+  .movie__title {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotlite</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/bf07fb2c37.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section id="landing">
+      <div class="landing__background">
+        <figure class="background__wrapper">
+          <nav class="nav__row row">
+            <div class="nav__content">
+              <div class="nav__left">
+                <img src="assets/spotlite_logo.png" alt="" class="nav__logo" />
+                <div class="nav__links">
+                  <a href="" class="nav__link">Home</a>
+                  <a href="" class="nav__link">Contact</a>
+                </div>
+              </div>
+              <div class="nav__right">
+                <div class="nav__search" >
+                        
+                        
+                  <i class="fa-solid fa-magnifying-glass nav__search__button" onclick="searchActive()"></i>
+                <input
+                  type="text"
+                  class="nav__input"
+                  placeholder="Find a movie"
+                  id="nav-input"
+                  autocomplete="off"
+                  onkeyup="searchNavEvent(event)"
+                />
+                </div>
+                <button class="nav__settings">
+                  <i class="fa-solid fa-gear"></i>
+                </button>
+              </div>
+            </div>
+          </nav>
+          <img
+            src="assets/brickwall.jpeg"
+            alt=""
+            class="background__image"
+          />
+          <div class="background__text">
+            <h1 class="background__title">Spot<span>Lite</span></h1>
+            <h2 class="background__subtitle">
+              With over <span>3000</span> movies on SpotLite, anything is
+              possible!
+            </h2>
+            <div class="background__search">
+              <div class="movie__input__wrapper form__submit">
+                <input
+                  type="text"
+                  class="movie__input"
+                  placeholder="Find a movie"
+                  id="search-input"
+                  autocomplete="off"
+                  onkeyup="searchBarEvent(event)"
+                />
+                <i class="fa-solid fa-magnifying-glass movie__search" onclick="searchBarClick()"></i>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section id="movies">
+        <div class="container">
+            <div class="row">
+                <div class="movies__content">
+                    <div class="movies__text">
+                        <h2 class="movies__title">Search results for:</h3>
+                        <h2 class="movies__search__text" id="search-text"></h2>
+                    </div>
+                    <div class="movies__list" id="movies-list">
+                        <i class="fa-solid fa-spinner movies__spinner"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </body>
+</html>
