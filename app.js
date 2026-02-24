@@ -28,18 +28,18 @@ async function fetchSearch(keyWord) {
 }
 
 async function renderMovies(searchValue = null) {
-  const moviesList = document.querySelector("#movies-list");
-  let movies = await fetchMovies();
-  console.log(movies);
+  try {
+    const moviesList = document.querySelector("#movies-list");
+    moviesList.innerHTML = `<i class="fa-solid fa-spinner movies__spinner"></i>`;
+    let movies = await fetchMovies();
 
-  if (searchValue !== null) {
-    movies = await fetchSearch(searchValue);
-    console.log(movies);
-  }
-  moviesList.innerHTML = movies
-    .slice(0, 6)
-    .map(
-      (movie) => `<div class="movie">
+    if (searchValue !== null) {
+      movies = await fetchSearch(searchValue);
+    }
+    moviesList.innerHTML = movies
+      .slice(0, 6)
+      .map(
+        (movie) => `<div class="movie">
                             <figure class="movie__image__wrapper">
                                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="" class="movie__image">
                                 <h3 class="movie__info__title">${movie.title}</h3>
@@ -60,8 +60,11 @@ async function renderMovies(searchValue = null) {
                             </figure>
                             <h4 class="movie__title">${movie.title}</h4>
                         </div>`,
-    )
-    .join("");
+      )
+      .join("");
+  } catch (e) {
+    alert(e);
+  }
 }
 
 function searchBarEvent(event) {

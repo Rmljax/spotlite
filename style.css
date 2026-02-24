@@ -246,7 +246,6 @@ body {
   color: var(--primary-color);
   position: absolute;
   left: 50%;
-  visibility: hidden;
   font-size: 36px;
   text-shadow: 0 0 10px var(--primary-color);
   justify-self: center;
